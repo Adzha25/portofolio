@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Adzha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="language-switch">
+      <span id="lang-id" onclick="switchLanguage('id')">IN</span> /
+      <span id="lang-en" onclick="switchLanguage('en')">EN</span>
+  </div>
+
+  <header class="header" id="home">
+    <div class="top-left-controls">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+      <div class="header-content-horizontal">
+        <img src="images/fotoprofil.jpg" class="profil" alt="Foto Profil" />
+        <div class="text-content">
+            <h1 id="judul">
+              <span id="judulAtas" class="judul-line">Hello Saya</span><br>
+              <span id="judulBawah" class="judul-line">Adzha Aji Pratama</span>
+            </h1>
+            <p id="nama">Web Developer</p>
+        </div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <div id="judulPorto" class="logo">Portofolio</div>
+      <ul class="nav-links">
+        <li><a href="#tentang" id="navTentang">Tentang</a></li>
+        <li><a href="#proyek" id="navProyek">Proyek</a></li>
+        <li><a href="#skills" id="navSkills">Stack Teknologi</a></li>
+        <li><a href="#kontak" id="navKontak">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <section id="tentang" class="scroll-reveal left tentang-section">
+    <div class="tentang-text">
+      <h2 id="judulTentang" class="fade-text">Tentang Saya</h2>
+      <p id="deskripsiTentang" class="fade-text">Halo! Saya adalah seorang fresh graduate S1 dari Universitas Banten Jaya, jurusan Teknik Informatika, yang memiliki minat besar dalam dunia pengembangan web. Selama masa studi, saya aktif mempelajari dan mengembangkan kemampuan dalam berbagai bahasa dan framework pemrograman seperti HTML, CSS, JavaScript, PHP (Laravel), serta pengelolaan database menggunakan MySQL. Saya percaya bahwa teknologi adalah alat yang kuat untuk menciptakan solusi nyata bagi banyak orang. Salah satu pengalaman yang sangat berkesan bagi saya adalah saat merancang dan membangun sistem informasi absensi berbasis web untuk SMAN 1 Bayah. Dari proyek tersebut, saya belajar banyak — mulai dari perencanaan sistem, pengkodean, hingga memahami kebutuhan pengguna secara langsung. Selain kemampuan teknis, saya juga memiliki beberapa soft skill yang saya banggakan seperti kemampuan komunikasi yang baik, kerja sama tim, adaptasi yang cepat, dan manajemen waktu. Saat ini, saya siap untuk melangkah ke dunia profesional, berkontribusi dalam tim pengembangan, dan terus belajar menjadi developer yang lebih baik.</p>
+      <div class="cv-buttons">
+        <a href="files/CV-Adzha.pdf" target="_blank" class="download-btn" id="btnDownloadID">
+          📄 Lihat CV Saya
+        </a>
+        <a href="files/CV-Adzha.pdf" target="_blank" class="download-btn" id="btnDownloadEN" style="display: none;">
+          📄 View My Resume
+        </a>
+      </div>
+    </div>
+    <div class="tentang-img-wrapper">
+      <img src="images/wisudaadzha.jpg" alt="Tentang Saya" class="tentang-img" />
+    </div>
+  </section>
+
+  <section id="proyek" class="slide-down project-section">
+    <h2 id="judulProyek" class="fade-text section-title">Proyek</h2>
+      <div class="project-grid">
+
+      <div class="project project-container">
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <img src="images/webabsensi.jpg" alt="Web Absensi Siswa" class="project-img" />
+            <div class="project-gradient"></div>
+          </div>
+          <div class="project-body">
+            <h3 id="daftar1Proyek" class="fade-text">Web Absensi Siswa</h3>
+            <p id="deskripsi1Proyek" class="fade-text">Website absensi siswa berbasis web yang memudahkan guru mencatat kehadiran secara digital. Dibekali fitur login, input absensi harian, rekap laporan, dan pencarian data. Dibangun dengan PHP Laravel, MySQL, HTML, CSS, dan JavaScript.</p>
+          </div>
+        </div>
+      </div>
+        <div class="project project-card">
+          <div class="project-img-wrapper">
+            <img src="images/webporto1.PNG" alt="web-porto" class="project-img" />
+            <div class="project-gradient"></div>
+          </div>
+          <div class="project-body">
+            <h3 id="daftar2Proyek" class="fade-text">Website Portofolio</h3>
+            <p id="deskripsi2Proyek" class="fade-text">Website portofolio pribadi ini dibuat untuk menampilkan profil, proyek, dan keahlian saya sebagai Full Stack Developer. Dibangun dengan HTML, CSS, dan JavaScript, serta dilengkapi fitur bilingual (Indonesia–Inggris) dan desain responsif.</p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+  </section>
+
+  <section id="skills" class="slide-down">
+    <h2 id="judulSkills" class="fade-text">Stack Teknologi</h2>
+      <div class="tech-icons">
+        <div class="tech-item">
+          <img src="icons/html.png" alt="HTML" />
+          <p>HTML</p>
+        </div>
+      <div class="tech-item">
+        <img src="icons/css.png" alt="CSS" />
+        <p>CSS</p>
+      </div>
+      <div class="tech-item">
+        <img src="icons/javascript.png" alt="JavaScript" />
+        <p>JavaScript</p>
+      </div>
+      <div class="tech-item">
+        <img src="icons/php.png" alt="PHP Laravel" />
+        <p>Laravel</p>
+      </div>
+      <div class="tech-item">
+        <img src="icons/mysql.png" alt="MySQL" />
+        <p>MySQL</p>
+      </div>
+      <div class="tech-item">
+        <img src="icons/vscode.png" alt="VSCode" />
+        <p>VSCode</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="slide-down">
+    <h2 id="judulKontak" class="fade-text">Kontak</h2>
+      <p><img src="icons/gmail.svg" class="inline-icon" alt="Gmail" /> adzhapratama23@gmail.com</p>
+      <p><img src="icons/linkedin.svg" class="inline-icon" alt="Linkedin" /> LinkedIn: linkedin.com/in/adzha-aji-pratama-a99500238</p>
+      <p><img src="icons/github.svg" class="inline-icon" alt="GitHub" /> GitHub: github.com/Adzha25</p>
+  </section>
+
+    <footer>
+      <p>&copy; 2025 Adzxqpshn.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

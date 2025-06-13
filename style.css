@@ -1,0 +1,724 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.6;
+}
+
+body.landing {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.header {
+  background-image: url('images/bgberanda.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Efek gelap/transparan di atas gambar */
+  z-index: 1;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2; /* Supaya teks di atas overlay */
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.judul-line {
+  display: inline-block;
+  line-height: 1.0;
+}
+
+.header-content-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  z-index: 2;
+  position: relative;
+  padding: 40px;
+}
+
+.text-content {
+  color: white;
+  text-align: left;
+}
+
+.text-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4.0rem;
+  letter-spacing: 1px;
+  line-height: 1.0;
+  margin: 0;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+#nama {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-style: bold;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .header-content-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-content {
+    text-align: center;
+  }
+}
+
+header .profil {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .profil {
+  border-color: #222;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 10px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #d97b24;
+  margin-right: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #d97b24;
+}
+
+.language-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.9rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.language-switch span {
+  margin: 0 5px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.language-switch span.active {
+  opacity: 1;
+  color: #e59346; /* atau warna utama kamu */
+  text-decoration: underline;
+}
+
+.fade-text {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fade-text.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.inline-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 6px;
+  filter: invert(0%);
+  transition: 0.3s ease;
+}
+
+body.dark-mode .inline-icon {
+  filter: invert(100%);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none; /* untuk versi mobile toggle */
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .navbar .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+nav {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav a {
+  text-decoration: none;
+  color: #333334;
+  font-weight: 500;
+}
+section {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333334;
+}
+.project {
+  margin-bottom: 20px;
+}
+.project h3 {
+  color: #333334;
+  margin-bottom: 5px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #e5e7eb;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+  will-change: transform, opacity;
+}
+
+.scroll-reveal.left {
+  transform: translateX(-50px);
+}
+
+.scroll-reveal.right {
+  transform: translateX(50px);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  will-change: transform, opacity;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-down {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease;
+  will-change: transform, opacity;
+}
+
+.slide-down.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tech-item {
+  text-align: center;
+  width: 100px;
+}
+
+.tech-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tech-item img:hover {
+  transform: scale(1.1);
+}
+
+.tech-item p {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* === Posisi di pojok kiri atas === */
+.top-left-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+/* === Switch Container === */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+/* Hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* === Track / latar belakang toggle === */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.4s;
+}
+
+/* === Bulatan toggle === */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* === Saat aktif (geser kanan) === */
+input:checked + .slider {
+  background-color: #444;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+  background-color: #222;
+}
+
+/* === Animasi Transisi Global === */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode a {
+  color: #fefefe;
+}
+
+/* === Tambahan Perbaikan untuk Dark Mode === */
+body.dark-mode section,
+body.dark-mode .card,
+body.dark-mode .content-box {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode section h2,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode .project h3 {
+  color: #f9f9f9;
+}
+
+body.dark-mode p {
+  color: #d0d0d0;
+}
+
+body.dark-mode .tech-item p {
+  color: #d0d0d0;
+}
+
+body.dark-mode footer {
+  background-color: #1a1a1a;
+  color: #aaa;
+}
+
+section, p, h2, h3, footer {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* === Navbar Default (Light Mode) === */
+.navbar {
+  background-color: #ffffff;
+  color: #333;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* === Navbar dalam Dark Mode === */
+body.dark-mode .navbar {
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+}
+
+/* Tautan di Navbar */
+.navbar a {
+  color: #4f46e5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .navbar a {
+  color: #ffffff;
+}
+
+body.dark-mode .navbar a:hover {
+  color: #d97b24; /* biru terang agar kontras di latar gelap */
+}
+
+.navbar a {
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  filter: invert(0%);
+  transition: filter 0.3s ease;
+}
+
+/* Layout Section Tentang */
+.tentang-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
+
+.tentang-text {
+  flex: 1 1 50%;
+}
+
+.tentang-img-wrapper {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.tentang-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 16px;
+  filter: grayscale(90%);
+  transition: filter 0.6s ease-in-out, transform 0.3s ease;
+}
+
+/* Zoom-in on hover */
+.tentang-img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .tentang-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tentang-text,
+  .tentang-img-wrapper {
+    flex: 1 1 100%;
+  }
+
+  .tentang-img {
+    max-width: 80%;
+  }
+}
+
+.cv-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #303030;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #d97b24;
+  transform: translateY(-2px);
+}
+
+/* Dark mode */
+body.dark-mode .download-btn {
+  background-color: #303030;
+  color: #fff;
+}
+body.dark-mode .download-btn:hover {
+  background-color: #d97b24;
+}
+
+.projects-section {
+  padding: 60px 20px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.project-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  flex: 1 1 400px;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-img-wrapper:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay on bottom */
+.project-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+.project-body {
+  padding: 20px;
+}
+
+.project-body h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.project-body p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Dark Mode */
+body.dark-mode .project-card {
+  background: #1e1e1e;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .project-body h3 {
+  color: #f9f9f9;
+}
+
+body.dark-mode .project-body p {
+  color: #d1d1d1;
+}
+
+body.dark-mode .project-gradient {
+  background: linear-gradient(to top, rgba(30,30,30,1), rgba(30,30,30,0));
+}
