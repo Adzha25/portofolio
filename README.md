@@ -39,7 +39,7 @@ Selamat datang di repositori website portofolio pribadi saya! Website ini dibuat
 2. Buka `index.html` di browser favorit kamu.
    ## ✨ Demo
 
-   Kunjungi versi live portofolio saya di: [github.com/Adzha25/portofolio](https://adzha25.github.io/portofolio/)
+   Kunjungi versi live portofolio saya di: [github.com/Adzha25/portofolio](https://portofolio-nu-gules.vercel.app/)
 
 ## 📫 Kontak
 
